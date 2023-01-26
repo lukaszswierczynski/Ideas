@@ -1,5 +1,8 @@
 package pl.swierczynskil.ideas;
 
+import pl.swierczynskil.ideas.Input.UserInputCommand;
+import pl.swierczynskil.ideas.Input.UserInputManager;
+
 public class IdeasApplication {
 
     public static void main(String[] args) {
@@ -25,5 +28,18 @@ public class IdeasApplication {
          *
          *
          */
+
+        boolean applicationLoop = true;
+
+        UserInputManager userInputManager = new UserInputManager();
+
+        while(applicationLoop){
+        try {
+            UserInputCommand userInputCommand = userInputManager.nextCommand();
+            System.out.println(userInputCommand);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
     }
 }
